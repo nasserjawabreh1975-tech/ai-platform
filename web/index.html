@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI PLATFORM</title>
+<style>
+body{background:#0f172a;color:white;text-align:center;font-family:Arial}
+button{padding:10px;background:lime}
+.dwarf{font-size:100px}
+</style>
+</head>
+<body>
+
+<h1>🔥 AI PLATFORM</h1>
+<div class="dwarf">🧌⚔️💣</div>
+
+<p>Local AI Running...</p>
+
+<input id="t" placeholder="task">
+<button onclick="go()">SEND</button>
+
+<p id="r"></p>
+
+<script>
+async function go(){
+ let t=document.getElementById("t").value
+ let r=await fetch("http://127.0.0.1:8000/task?task="+t,{method:"POST"})
+ let d=await r.json()
+ document.getElementById("r").innerText=JSON.stringify(d)
+}
+</script>
+
+</body>
+</html>
